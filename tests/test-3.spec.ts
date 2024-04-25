@@ -1,0 +1,51 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://devaxle.thecarloancentre.co.uk/#/login');
+  await page.getByPlaceholder('Enter username').click();
+  await page.getByPlaceholder('Enter username').fill('robin.kumar@skillikz.com');
+  await page.getByPlaceholder('Enter password').click();
+  await page.getByPlaceholder('Enter password').fill('CarLoan123');
+  await page.getByRole('button', { name: 'Log In ' }).click();
+  test.slow();
+  await page.waitForURL('https://devaxle.thecarloancentre.co.uk/#/');
+  await page.pause();
+  await page.locator('a:nth-child(18)').click();
+  await page.getByRole('link', { name: ' Vehicle List' }).click();
+  test.slow();
+  await page.waitForURL('https://devaxle.thecarloancentre.co.uk/#/vehicle/vehiclelist');
+  await page.pause();
+  const page1Promise = page.waitForEvent('popup');
+  await page.locator('td:nth-child(4)').first().click();
+  const page1 = await page1Promise;
+  await page1.goto('https://devaxle.thecarloancentre.co.uk/#/vehicle/addnewvehicle?U2FsdGVkX1%2FSsr3kyjUNliIyvSkAnKVG9A%2Bnn1tX3QE%3D=U2FsdGVkX18NCayZhdLNyZF8JqMDRVM%2B9wlddkbK%2BHA%3D&U2FsdGVkX1%2BDmyr5MumMm6OTCNtA2S%2BSgx7J5egNH50%3D=U2FsdGVkX18lDx1DE6mdSJ%2F81qhOtfwq5D%2B9Fpn8%2B34%3D&U2FsdGVkX1%2BW5r3diN%2FI0WCKOpMs8WsBZY87RT8PZRA%3D=U2FsdGVkX1%2FwI3QLJTCfy9C6oSsSlLQuZfZ3Fd2ra78%3D&U2FsdGVkX19dIHoXWPynnNh2SoexX5lm481vyqB9qGc%3D=U2FsdGVkX1%2BFgCmI083slF4e5ON5AoU9sQAQdslhNfY%3D');
+  await page.getByLabel('Search:').click();
+  await page.getByLabel('Search:').fill('garage');
+  // await page1.getByRole('tab', { name: 'Client' }).click();
+  // await page1.getByRole('tab', { name: 'Contract' }).click();
+  // await page1.getByRole('tab', { name: 'Cost Management' }).click();
+  // await page1.getByRole('tab', { name: 'Vehicle Details' }).click();
+  await page1.locator('#cdk-step-label-0-1').getByText('Garage Details').click();
+  await page.close();
+});
+
+test('test for garage', async ({ page }) => {
+await page.goto('https://devaxle.thecarloancentre.co.uk/#/login');
+await page.getByPlaceholder('Enter username').click();
+await page.getByPlaceholder('Enter username').fill('robin.kumar@skillikz.com');
+await page.getByPlaceholder('Enter password').click();
+await page.getByPlaceholder('Enter password').fill('CarLoan123');
+await page.getByRole('button', { name: 'Log In ' }).click();
+test.slow();
+await page.locator('a:nth-child(18)').click();
+await page.getByRole('link', { name: ' Vehicle List' }).click();
+test.slow();
+const page1Promise = page.waitForEvent('popup');
+  await page.locator('[id="\\30 "]').click();
+  const page1 = await page1Promise;
+await page1.goto('https://devaxle.thecarloancentre.co.uk/#/vehicle/addnewvehicle?U2FsdGVkX1%2BARbe87%2BxrT7Y1Zm0MWn4cGIgfzWD9fMc%3D=U2FsdGVkX1%2FvzGKUcLxfDaWTwMJe%2BCC8UUTOk6mxJgo%3D&U2FsdGVkX18rQqWfxpwuPOa7SVk9EkogNakz%2BLq5qqo%3D=U2FsdGVkX18DyJR3tFSks0uGuPxEJ8lll8GvpdzmK6A%3D&U2FsdGVkX18NemVYmP2a35nd1zBtnu3ldHEm6fKHeMM%3D=U2FsdGVkX1%2F3aVr4GrFc82jorZ2BxB9s98F0kMgHle4%3D&U2FsdGVkX18fQaWNCL4aZFoaSJpi8y2KsXTKZMaQqDw%3D=U2FsdGVkX19FUw3Gq7wKXMJK7EMbatzKngjO9EJx2E8%3D');
+test.slow();
+await page1.getByText('Garage Details', { exact: true }).click();
+await page.close();
+await page1.close();
+});

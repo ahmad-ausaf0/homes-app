@@ -1,0 +1,25 @@
+{
+  "cookies": [
+    {
+      "name": "ARRAffinity",
+      "value": "4fb3192dd5005df4395924b1d97c9b681e9979439a9624923dc1beb28b17df6b",
+      "domain": ".devaxle.thecarloancentre.co.uk",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ARRAffinitySameSite",
+      "value": "4fb3192dd5005df4395924b1d97c9b681e9979439a9624923dc1beb28b17df6b",
+      "domain": ".devaxle.thecarloancentre.co.uk",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    }
+  ],
+  "origins": []
+}
